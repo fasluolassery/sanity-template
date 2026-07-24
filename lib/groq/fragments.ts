@@ -54,6 +54,9 @@ export const ctaFragment = `
 export const seoFragment = `
   metaTitle,
   metaDescription,
+  keywords,
+  twitterCardType,
+  jsonLdType,
   openGraphImage {
     ${imageWithAltFragment}
   },

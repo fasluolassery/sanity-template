@@ -45,6 +45,9 @@ export interface SanityCTA {
 export interface SanitySEO {
   metaTitle?: string
   metaDescription?: string
+  keywords?: string[]
+  twitterCardType?: 'summary_large_image' | 'summary'
+  jsonLdType?: 'WebPage' | 'Article' | 'Service' | 'Organization' | 'FAQPage'
   openGraphImage?: SanityImage
   canonicalUrl?: string
   noIndex?: boolean
