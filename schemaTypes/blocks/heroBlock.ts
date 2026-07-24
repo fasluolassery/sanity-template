@@ -37,19 +37,6 @@ export const heroBlock = defineType({
       type: 'responsiveImage',
       description: 'Device-adaptable image set supporting Desktop, Tablet, and Mobile layouts.',
     }),
-    defineField({
-      name: 'layoutAlignment',
-      title: 'Content Alignment',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Left Aligned (Split Layout)', value: 'left' },
-          { title: 'Center Aligned (Stacked Layout)', value: 'center' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'left',
-    }),
   ],
   preview: {
     select: {

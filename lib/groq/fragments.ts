@@ -71,7 +71,6 @@ export const heroBlockFragment = `
     badge,
     heading,
     subheading,
-    layoutAlignment,
     image {
       ${responsiveImageFragment}
     },

@@ -60,7 +60,6 @@ export interface HeroBlockData {
   badge?: string
   heading: string
   subheading?: string
-  layoutAlignment?: 'left' | 'center'
   image?: ResponsiveImageData
   ctas?: SanityCTA[]
 }
