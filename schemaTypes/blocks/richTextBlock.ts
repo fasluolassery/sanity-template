@@ -16,29 +16,15 @@ export const richTextBlock = defineType({
       type: 'richText',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'containerWidth',
-      title: 'Container Max Width',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Narrow Reading Column (650px)', value: 'narrow' },
-          { title: 'Medium Container (900px)', value: 'medium' },
-          { title: 'Full Grid Container (1200px)', value: 'full' },
-        ],
-      },
-      initialValue: 'medium',
-    }),
   ],
   preview: {
     select: {
       title: 'sectionTitle',
-      width: 'containerWidth',
     },
-    prepare({ title, width }) {
+    prepare({ title }) {
       return {
         title: `Rich Text Block: ${title || 'Untitled Section'}`,
-        subtitle: `Container width: ${width || 'medium'}`,
+        subtitle: 'Editorial Body Section',
       }
     },
   },

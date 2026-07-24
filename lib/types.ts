@@ -89,7 +89,6 @@ export interface CTABlockData {
   _type: 'ctaBlock'
   title: string
   description?: string
-  backgroundTheme: 'brand' | 'dark' | 'light'
   ctas?: SanityCTA[]
 }
 
@@ -112,7 +111,6 @@ export interface RichTextBlockData {
   _key: string
   _type: 'richTextBlock'
   sectionTitle?: string
-  containerWidth: 'narrow' | 'medium' | 'full'
   body: any // Portable Text array
 }
 

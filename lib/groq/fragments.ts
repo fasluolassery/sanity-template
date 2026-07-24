@@ -119,7 +119,6 @@ export const ctaBlockFragment = `
     _type,
     title,
     description,
-    backgroundTheme,
     ctas[] {
       ${ctaFragment}
     }
@@ -144,7 +143,6 @@ export const richTextBlockFragment = `
   _type == "richTextBlock" => {
     _type,
     sectionTitle,
-    containerWidth,
     body
   }
 `

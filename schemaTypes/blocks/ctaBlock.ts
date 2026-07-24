@@ -23,29 +23,15 @@ export const ctaBlock = defineType({
       type: 'array',
       of: [defineArrayMember({ type: 'cta' })],
     }),
-    defineField({
-      name: 'backgroundTheme',
-      title: 'Background Style Theme',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Brand Primary Gradient', value: 'brand' },
-          { title: 'Dark Premium', value: 'dark' },
-          { title: 'Clean Light / White', value: 'light' },
-        ],
-      },
-      initialValue: 'brand',
-    }),
   ],
   preview: {
     select: {
       title: 'title',
-      theme: 'backgroundTheme',
     },
-    prepare({ title, theme }) {
+    prepare({ title }) {
       return {
         title: `CTA Banner: ${title || 'Untitled'}`,
-        subtitle: `Theme: ${theme || 'brand'}`,
+        subtitle: 'CTA Banner Section',
       }
     },
   },
