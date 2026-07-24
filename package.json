@@ -1,0 +1,36 @@
+{
+  "name": "sanity-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enterprise Sanity Studio and Centralized GROQ Content Access Layer",
+  "main": "sanity.config.ts",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "typecheck": "tsc --noEmit",
+    "typegen": "sanity typegen generate",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@portabletext/react": "^3.1.0",
+    "@sanity/icons": "^3.5.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.70.0",
+    "next-sanity": "^9.8.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.70.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@types/node": "^22.13.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "husky": "^9.1.7",
+    "typescript": "^5.7.3"
+  }
+}
