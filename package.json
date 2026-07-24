@@ -2,7 +2,7 @@
   "name": "sanity-studio",
   "version": "1.0.0",
   "private": true,
-  "description": "Enterprise Sanity Studio and Centralized GROQ Content Access Layer Template",
+  "description": "Sanity Studio and Centralized GROQ Content Access Layer Template",
   "main": "sanity.config.ts",
   "scripts": {
     "dev": "sanity dev",

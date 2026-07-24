@@ -1,4 +1,4 @@
-# 🚀 Enterprise Sanity CMS & Data Access Layer for Next.js
+# 🚀 Sanity CMS & Data Access Layer for Next.js
 
 Welcome to the Sanity Studio & Centralized Content Architecture! This repository manages all schema definitions, studio desk singletons, Portable Text objects, and pre-built GROQ query functions for your Next.js application.
 

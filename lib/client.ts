@@ -9,7 +9,7 @@ export const client = createClient({
 })
 
 /**
- * Enterprise typed fetch wrapper for Next.js Server Components with caching control
+ * Typed fetch wrapper for Next.js Server Components with caching control
  */
 export async function sanityFetch<QueryResponse>({
   query,

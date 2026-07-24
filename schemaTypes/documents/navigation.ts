@@ -9,7 +9,7 @@ export const navigation = defineType({
       name: 'brandName',
       title: 'Brand Title / Logo Text',
       type: 'string',
-      initialValue: 'Vis Pro',
+      initialValue: 'Brand Name',
     }),
     defineField({
       name: 'logo',

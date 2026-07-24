@@ -59,7 +59,7 @@ export const footer = defineType({
       name: 'copyright',
       title: 'Copyright Notice',
       type: 'string',
-      initialValue: '© 2026 Vis Pro. All rights reserved.',
+      initialValue: '© 2026 Brand Name. All rights reserved.',
     }),
     defineField({
       name: 'legalLinks',
