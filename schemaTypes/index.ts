@@ -5,6 +5,7 @@ import { seo } from './objects/seo'
 import { link } from './objects/link'
 import { cta } from './objects/cta'
 import { imageWithAlt } from './objects/imageWithAlt'
+import { responsiveImage } from './objects/responsiveImage'
 import { richText } from './objects/richText'
 
 // Blocks (Page Builder Sections)
@@ -28,6 +29,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   link,
   cta,
   imageWithAlt,
+  responsiveImage,
   richText,
 
   // Section Blocks

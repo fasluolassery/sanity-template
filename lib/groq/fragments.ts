@@ -20,6 +20,18 @@ export const imageWithAltFragment = `
   caption
 `
 
+export const responsiveImageFragment = `
+  desktop {
+    ${imageWithAltFragment}
+  },
+  tablet {
+    ${imageWithAltFragment}
+  },
+  mobile {
+    ${imageWithAltFragment}
+  }
+`
+
 export const linkFragment = `
   linkType,
   externalUrl,
@@ -58,7 +70,7 @@ export const heroBlockFragment = `
     subheading,
     layoutAlignment,
     image {
-      ${imageWithAltFragment}
+      ${responsiveImageFragment}
     },
     ctas[] {
       ${ctaFragment}

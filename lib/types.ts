@@ -19,6 +19,12 @@ export interface SanityImage {
   caption?: string
 }
 
+export interface ResponsiveImageData {
+  desktop: SanityImage
+  tablet?: SanityImage
+  mobile?: SanityImage
+}
+
 export interface SanityLink {
   linkType: 'internal' | 'external'
   externalUrl?: string
@@ -52,7 +58,7 @@ export interface HeroBlockData {
   heading: string
   subheading?: string
   layoutAlignment?: 'left' | 'center'
-  image?: SanityImage
+  image?: ResponsiveImageData
   ctas?: SanityCTA[]
 }
 

@@ -33,8 +33,9 @@ export const heroBlock = defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Hero Visual Media',
-      type: 'imageWithAlt',
+      title: 'Responsive Hero Visual Media',
+      type: 'responsiveImage',
+      description: 'Device-adaptable image set supporting Desktop, Tablet, and Mobile layouts.',
     }),
     defineField({
       name: 'layoutAlignment',
@@ -54,7 +55,7 @@ export const heroBlock = defineType({
     select: {
       title: 'heading',
       subtitle: 'badge',
-      media: 'image.asset',
+      media: 'image.desktop.asset',
     },
     prepare({ title, subtitle, media }) {
       return {
