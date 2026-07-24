@@ -12,6 +12,13 @@ export const siteSettings = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'siteUrl',
+      title: 'Canonical Website Domain URL',
+      type: 'url',
+      description:
+        'Primary domain URL used for canonical links and sitemap generation (e.g. https://yourdomain.com).',
+    }),
+    defineField({
       name: 'siteDescription',
       title: 'Default Meta Description',
       type: 'text',
@@ -26,6 +33,15 @@ export const siteSettings = defineType({
       name: 'defaultOgImage',
       title: 'Default Social Share Image (Open Graph)',
       type: 'imageWithAlt',
+    }),
+    defineField({
+      name: 'disallowedPaths',
+      title: 'Search Bot Disallowed Paths (robots.txt)',
+      type: 'array',
+      of: [defineArrayMember({ type: 'string' })],
+      description:
+        'Paths search engine crawlers should ignore (e.g. "/studio", "/api/", "/admin/").',
+      initialValue: ['/studio', '/api/'],
     }),
     defineField({
       name: 'socialLinks',
@@ -57,7 +73,7 @@ export const siteSettings = defineType({
     prepare() {
       return {
         title: 'Global Site Settings',
-        subtitle: 'Favicon, default SEO & social profile URLs',
+        subtitle: 'Domain URL, default SEO & crawling rules',
       }
     },
   },

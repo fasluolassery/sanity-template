@@ -154,10 +154,18 @@ export interface PostData {
 
 export interface SiteSettingsData {
   siteTitle: string
+  siteUrl?: string
   siteDescription?: string
   faviconUrl?: string
   defaultOgImage?: SanityImage
+  disallowedPaths?: string[]
   socialLinks?: Array<{ _key: string; platform: string; url: string }>
+}
+
+export interface SitemapItemData {
+  _type: 'page' | 'service' | 'post'
+  slug: string
+  _updatedAt: string
 }
 
 export interface NavigationData {

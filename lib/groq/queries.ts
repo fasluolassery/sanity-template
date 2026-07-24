@@ -119,11 +119,13 @@ export const POST_BY_SLUG_QUERY = groq`
 export const SITE_SETTINGS_QUERY = groq`
   *[_type == "siteSettings"][0] {
     siteTitle,
+    siteUrl,
     siteDescription,
     "faviconUrl": favicon.asset->url,
     defaultOgImage {
       ${imageWithAltFragment}
     },
+    disallowedPaths,
     socialLinks[] {
       _key,
       platform,
@@ -188,5 +190,27 @@ export const FOOTER_QUERY = groq`
         ${linkFragment}
       }
     }
+  }
+`
+
+/**
+ * Fetch all indexable documents for dynamic sitemap.xml generation
+ * Excludes pages where seo.noIndex == true
+ */
+export const SITEMAP_QUERY = groq`
+  *[_type in ["page", "service", "post"] && (seo.noIndex != true)] {
+    _type,
+    "slug": slug.current,
+    "_updatedAt": _updatedAt
+  }
+`
+
+/**
+ * Fetch global crawling rules for dynamic robots.txt generation
+ */
+export const ROBOTS_QUERY = groq`
+  *[_type == "siteSettings"][0] {
+    siteUrl,
+    disallowedPaths
   }
 `

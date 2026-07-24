@@ -106,17 +106,58 @@ export function PageBuilder({ blocks }: { blocks: PageBlock[] }) {
 
 ---
 
-### 3. Rendering Rich Text / Portable Text Content
+### 3. Dynamic `sitemap.xml` Generation in Next.js (`app/sitemap.ts`)
 
 ```tsx
-import { PortableText } from '@portabletext/react'
+import { MetadataRoute } from 'next'
+import { sanityFetch } from '@/sanity/lib/client'
+import { SITEMAP_QUERY, ROBOTS_QUERY } from '@/sanity/lib/groq/queries'
+import type { SitemapItemData, SiteSettingsData } from '@/sanity/lib/types'
 
-export function RichTextRenderer({ value }: { value: any }) {
-  return (
-    <div className="prose prose-lg dark:prose-invert">
-      <PortableText value={value} />
-    </div>
-  )
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [items, siteSettings] = await Promise.all([
+    sanityFetch<SitemapItemData[]>({ query: SITEMAP_QUERY }),
+    sanityFetch<SiteSettingsData>({ query: ROBOTS_QUERY }),
+  ])
+
+  const baseUrl = siteSettings?.siteUrl || 'https://yourdomain.com'
+
+  return items.map((item) => {
+    let path = `/${item.slug}`
+    if (item._type === 'service') path = `/services/${item.slug}`
+    if (item._type === 'post') path = `/blog/${item.slug}`
+    if (item.slug === 'home' || item.slug === '/') path = ''
+
+    return {
+      url: `${baseUrl}${path}`,
+      lastModified: new Date(item._updatedAt),
+    }
+  })
+}
+```
+
+---
+
+### 4. Dynamic `robots.txt` Generation in Next.js (`app/robots.ts`)
+
+```tsx
+import { MetadataRoute } from 'next'
+import { sanityFetch } from '@/sanity/lib/client'
+import { ROBOTS_QUERY } from '@/sanity/lib/groq/queries'
+import type { SiteSettingsData } from '@/sanity/lib/types'
+
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const siteSettings = await sanityFetch<SiteSettingsData>({ query: ROBOTS_QUERY })
+  const baseUrl = siteSettings?.siteUrl || 'https://yourdomain.com'
+
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: siteSettings?.disallowedPaths || ['/studio', '/api/'],
+    },
+    sitemap: `${baseUrl}/sitemap.xml`,
+  }
 }
 ```
 
@@ -124,7 +165,7 @@ export function RichTextRenderer({ value }: { value: any }) {
 
 ## 🎨 Schema Architecture & Conventions
 
-- **Objects (`schemaTypes/objects/`)**: Atomic field definitions (`seo`, `link`, `cta`, `imageWithAlt`, `richText`).
+- **Objects (`schemaTypes/objects/`)**: Atomic field definitions (`seo`, `link`, `cta`, `imageWithAlt`, `responsiveImage`, `richText`).
 - **Blocks (`schemaTypes/blocks/`)**: Dynamic section modules (`heroBlock`, `servicesGridBlock`, `ctaBlock`, `faqBlock`, `richTextBlock`).
 - **Documents (`schemaTypes/documents/`)**: Standard collections (`page`, `service`, `post`) & Singletons (`siteSettings`, `navigation`, `footer`).
 - **Singletons**: Restricted in Studio Desk (`desk/structure.ts`) so content managers cannot delete or duplicate Global Settings, Header, or Footer documents.
