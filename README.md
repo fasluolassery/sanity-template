@@ -7,12 +7,14 @@ Welcome to the Sanity Studio & Centralized Content Architecture! This repository
 ## 🛠️ Project Setup & Local Studio Execution
 
 1. **Install Dependencies**:
+
    ```bash
    npm install
    ```
 
 2. **Configure Environment Variables**:
    Copy `.env.example` to `.env.local` inside your Next.js root:
+
    ```env
    NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
    NEXT_PUBLIC_SANITY_DATASET=production

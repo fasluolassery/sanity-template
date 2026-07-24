@@ -22,14 +22,10 @@ export async function sanityFetch<QueryResponse>({
   revalidate?: number | false
   tags?: string[]
 }): Promise<QueryResponse> {
-  return client.fetch<QueryResponse>(
-    query,
-    params,
-    {
-      next: {
-        revalidate,
-        tags,
-      },
-    } as any
-  )
+  return client.fetch<QueryResponse>(query, params, {
+    next: {
+      revalidate,
+      tags,
+    },
+  } as any)
 }

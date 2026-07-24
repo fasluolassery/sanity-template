@@ -1,5 +1,12 @@
 import { StructureResolver } from 'sanity/structure'
-import { CogIcon, MenuIcon, BlockElementIcon, DocumentsIcon, CaseIcon, ComposeIcon } from '@sanity/icons'
+import {
+  CogIcon,
+  MenuIcon,
+  BlockElementIcon,
+  DocumentsIcon,
+  CaseIcon,
+  ComposeIcon,
+} from '@sanity/icons'
 
 // Define document types that should act as singletons
 const singletonTypes = new Set(['siteSettings', 'navigation', 'footer'])
@@ -12,27 +19,15 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title('Global Site Settings')
         .icon(CogIcon)
-        .child(
-          S.document()
-            .schemaType('siteSettings')
-            .documentId('siteSettings')
-        ),
+        .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
       S.listItem()
         .title('Header Navigation')
         .icon(MenuIcon)
-        .child(
-          S.document()
-            .schemaType('navigation')
-            .documentId('navigation')
-        ),
+        .child(S.document().schemaType('navigation').documentId('navigation')),
       S.listItem()
         .title('Footer Configuration')
         .icon(BlockElementIcon)
-        .child(
-          S.document()
-            .schemaType('footer')
-            .documentId('footer')
-        ),
+        .child(S.document().schemaType('footer').documentId('footer')),
 
       S.divider(),
 
@@ -52,6 +47,8 @@ export const structure: StructureResolver = (S) =>
 
       // Filter out singletons from generic list
       ...S.documentTypeListItems().filter(
-        (listItem) => !singletonTypes.has(listItem.getId() || '') && !['page', 'service', 'post'].includes(listItem.getId() || '')
+        (listItem) =>
+          !singletonTypes.has(listItem.getId() || '') &&
+          !['page', 'service', 'post'].includes(listItem.getId() || '')
       ),
     ])

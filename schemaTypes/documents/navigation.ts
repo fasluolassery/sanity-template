@@ -47,9 +47,23 @@ export const navigation = defineType({
                   type: 'object',
                   name: 'subNavItem',
                   fields: [
-                    defineField({ name: 'label', type: 'string', title: 'Label', validation: (Rule) => Rule.required() }),
-                    defineField({ name: 'link', type: 'link', title: 'Link Target', validation: (Rule) => Rule.required() }),
-                    defineField({ name: 'description', type: 'string', title: 'Short Hover Description' }),
+                    defineField({
+                      name: 'label',
+                      type: 'string',
+                      title: 'Label',
+                      validation: (Rule) => Rule.required(),
+                    }),
+                    defineField({
+                      name: 'link',
+                      type: 'link',
+                      title: 'Link Target',
+                      validation: (Rule) => Rule.required(),
+                    }),
+                    defineField({
+                      name: 'description',
+                      type: 'string',
+                      title: 'Short Hover Description',
+                    }),
                   ],
                 }),
               ],

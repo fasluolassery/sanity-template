@@ -8,15 +8,15 @@ module.exports = {
       2,
       'always',
       [
-        'schema',   // Schema definitions (objects, blocks, documents)
-        'groq',     // GROQ queries & fragments
-        'desk',     // Studio desk structure & singletons
-        'studio',   // Sanity studio config & plugins
-        'client',   // Sanity client & fetchers
-        'types',    // TypeScript definitions
-        'docs',     // README & handoff documentation
-        'config',   // Environment & project setup
-        'deps',     // Dependency updates
+        'schema', // Schema definitions (objects, blocks, documents)
+        'groq', // GROQ queries & fragments
+        'desk', // Studio desk structure & singletons
+        'studio', // Sanity studio config & plugins
+        'client', // Sanity client & fetchers
+        'types', // TypeScript definitions
+        'docs', // README & handoff documentation
+        'config', // Environment & project setup
+        'deps', // Dependency updates
       ],
     ],
   },

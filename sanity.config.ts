@@ -3,10 +3,10 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemaTypes'
 import { structure } from './desk/structure'
-import { projectId, dataset, studioTitle } from './env'
+import { projectId, dataset, studioTitle, apiVersion } from './env'
+import { templateConfig } from './template.config'
 
-// Define singleton document types to disable creation & deletion actions
-const singletonTypes = new Set(['siteSettings', 'navigation', 'footer'])
+const singletonTypes = new Set(templateConfig.singletonDocumentTypes)
 
 export default defineConfig({
   name: 'default',
@@ -15,24 +15,22 @@ export default defineConfig({
   projectId,
   dataset,
 
-  plugins: [
-    structureTool({ structure }),
-    visionTool({ defaultApiVersion: '2024-03-01' }),
-  ],
+  plugins: [structureTool({ structure }), visionTool({ defaultApiVersion: apiVersion })],
 
   schema: {
     types: schemaTypes,
 
     // Filter out singleton types from "Create new document" menu
-    templates: (templates) =>
-      templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
+    templates: (templates) => templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
   },
 
   document: {
     // For Singleton documents, remove option to unpublish/delete
     actions: (input, context) => {
       return singletonTypes.has(context.schemaType)
-        ? input.filter(({ action }) => action && ['publish', 'discardChanges', 'restore'].includes(action))
+        ? input.filter(
+            ({ action }) => action && ['publish', 'discardChanges', 'restore'].includes(action)
+          )
         : input
     },
   },

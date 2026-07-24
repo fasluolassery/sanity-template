@@ -109,11 +109,7 @@ export interface RichTextBlockData {
 }
 
 export type PageBlock =
-  | HeroBlockData
-  | ServicesGridBlockData
-  | CTABlockData
-  | FAQBlockData
-  | RichTextBlockData
+  HeroBlockData | ServicesGridBlockData | CTABlockData | FAQBlockData | RichTextBlockData
 
 export interface PageData {
   _id: string

@@ -9,7 +9,8 @@ export const heroBlock = defineType({
       name: 'badge',
       title: 'Eyebrow Badge Text',
       type: 'string',
-      description: 'Small tag or badge displayed above the main heading (e.g., "✨ Introducing Vis Pro").',
+      description:
+        'Small tag or badge displayed above the main heading (e.g., "✨ Introducing Vis Pro").',
     }),
     defineField({
       name: 'heading',

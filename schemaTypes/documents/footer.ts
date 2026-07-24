@@ -35,8 +35,18 @@ export const footer = defineType({
                   type: 'object',
                   name: 'footerLink',
                   fields: [
-                    defineField({ name: 'label', type: 'string', title: 'Label', validation: (Rule) => Rule.required() }),
-                    defineField({ name: 'link', type: 'link', title: 'Target Link', validation: (Rule) => Rule.required() }),
+                    defineField({
+                      name: 'label',
+                      type: 'string',
+                      title: 'Label',
+                      validation: (Rule) => Rule.required(),
+                    }),
+                    defineField({
+                      name: 'link',
+                      type: 'link',
+                      title: 'Target Link',
+                      validation: (Rule) => Rule.required(),
+                    }),
                   ],
                 }),
               ],
@@ -60,8 +70,18 @@ export const footer = defineType({
           type: 'object',
           name: 'legalLink',
           fields: [
-            defineField({ name: 'label', type: 'string', title: 'Label', validation: (Rule) => Rule.required() }),
-            defineField({ name: 'link', type: 'link', title: 'Target Link', validation: (Rule) => Rule.required() }),
+            defineField({
+              name: 'label',
+              type: 'string',
+              title: 'Label',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'link',
+              type: 'link',
+              title: 'Target Link',
+              validation: (Rule) => Rule.required(),
+            }),
           ],
         }),
       ],
