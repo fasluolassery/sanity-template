@@ -144,6 +144,24 @@ export interface LogoCloudBlockData {
   logos: LogoItemData[]
 }
 
+export interface TestimonialItemData {
+  _key: string
+  quote: string
+  authorName: string
+  authorRole?: string
+  avatar?: SanityImage
+  rating?: number
+}
+
+export interface TestimonialsBlockData {
+  _key: string
+  _type: 'testimonialsBlock'
+  eyebrow?: string
+  heading?: string
+  description?: string
+  testimonials: TestimonialItemData[]
+}
+
 export type PageBlock =
   | HeroBlockData
   | ServicesGridBlockData
@@ -152,6 +170,7 @@ export type PageBlock =
   | RichTextBlockData
   | StatsBlockData
   | LogoCloudBlockData
+  | TestimonialsBlockData
 
 export interface PageData {
   _id: string

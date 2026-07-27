@@ -177,6 +177,25 @@ export const logoCloudBlockFragment = `
   }
 `
 
+export const testimonialsBlockFragment = `
+  _type == "testimonialsBlock" => {
+    _type,
+    eyebrow,
+    heading,
+    description,
+    testimonials[] {
+      _key,
+      quote,
+      authorName,
+      authorRole,
+      avatar {
+        ${imageWithAltFragment}
+      },
+      rating
+    }
+  }
+`
+
 export const pageBuilderFragment = `
   pageBuilder[] {
     _key,
@@ -187,6 +206,7 @@ export const pageBuilderFragment = `
     ${faqBlockFragment},
     ${richTextBlockFragment},
     ${statsBlockFragment},
-    ${logoCloudBlockFragment}
+    ${logoCloudBlockFragment},
+    ${testimonialsBlockFragment}
   }
 `
