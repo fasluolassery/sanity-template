@@ -1,9 +1,11 @@
+import { ImagesIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const logoCloudBlock = defineType({
   name: 'logoCloudBlock',
   title: 'Client & Partner Logo Cloud Block',
   type: 'object',
+  icon: ImagesIcon,
   fields: [
     defineField({
       name: 'eyebrow',

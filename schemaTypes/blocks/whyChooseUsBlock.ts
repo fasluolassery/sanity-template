@@ -1,9 +1,11 @@
+import { CheckmarkCircleIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const whyChooseUsBlock = defineType({
   name: 'whyChooseUsBlock',
   title: 'Why Choose Us / Value Proposition Block',
   type: 'object',
+  icon: CheckmarkCircleIcon,
   fields: [
     defineField({
       name: 'eyebrow',

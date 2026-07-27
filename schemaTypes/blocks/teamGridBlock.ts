@@ -1,9 +1,11 @@
+import { UsersIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const teamGridBlock = defineType({
   name: 'teamGridBlock',
   title: 'Team & Leadership Grid Block',
   type: 'object',
+  icon: UsersIcon,
   fields: [
     defineField({
       name: 'eyebrow',

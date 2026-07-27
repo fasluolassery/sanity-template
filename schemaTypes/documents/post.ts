@@ -1,9 +1,11 @@
+import { EditIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export const post = defineType({
   name: 'post',
   title: 'Blog Posts Collection',
   type: 'document',
+  icon: EditIcon,
   groups: [
     { name: 'content', title: 'Article Content', default: true },
     { name: 'seo', title: 'SEO & Metadata' },

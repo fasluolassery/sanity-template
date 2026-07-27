@@ -1,9 +1,11 @@
+import { DocumentTextIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export const richTextBlock = defineType({
   name: 'richTextBlock',
   title: 'Editorial Rich Text Section Block',
   type: 'object',
+  icon: DocumentTextIcon,
   fields: [
     defineField({
       name: 'heading',

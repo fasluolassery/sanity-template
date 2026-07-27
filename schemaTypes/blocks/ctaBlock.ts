@@ -1,9 +1,11 @@
+import { RocketIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const ctaBlock = defineType({
   name: 'ctaBlock',
   title: 'Call-to-Action Banner Block',
   type: 'object',
+  icon: RocketIcon,
   fields: [
     defineField({
       name: 'eyebrow',

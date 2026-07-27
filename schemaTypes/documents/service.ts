@@ -1,9 +1,11 @@
+import { CogIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export const service = defineType({
   name: 'service',
   title: 'Services Collection',
   type: 'document',
+  icon: CogIcon,
   groups: [
     { name: 'content', title: 'Service Details', default: true },
     { name: 'seo', title: 'SEO & Metadata' },

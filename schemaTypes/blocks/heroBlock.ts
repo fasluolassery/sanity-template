@@ -1,9 +1,11 @@
+import { ImageIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const heroBlock = defineType({
   name: 'heroBlock',
   title: 'Hero Section Block',
   type: 'object',
+  icon: ImageIcon,
   fields: [
     defineField({
       name: 'badge',

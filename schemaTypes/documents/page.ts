@@ -1,9 +1,11 @@
+import { DocumentIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const page = defineType({
   name: 'page',
   title: 'Pages',
   type: 'document',
+  icon: DocumentIcon,
   groups: [
     { name: 'content', title: 'Page Content & Layout', default: true },
     { name: 'seo', title: 'SEO & Metadata' },

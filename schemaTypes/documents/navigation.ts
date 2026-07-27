@@ -1,9 +1,11 @@
+import { MenuIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const navigation = defineType({
   name: 'navigation',
   title: 'Header Navigation Menu',
   type: 'document',
+  icon: MenuIcon,
   fields: [
     defineField({
       name: 'brandName',

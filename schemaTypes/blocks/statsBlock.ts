@@ -1,9 +1,11 @@
+import { BarChartIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const statsBlock = defineType({
   name: 'statsBlock',
   title: 'Key Metrics & Statistics Block',
   type: 'object',
+  icon: BarChartIcon,
   fields: [
     defineField({
       name: 'eyebrow',

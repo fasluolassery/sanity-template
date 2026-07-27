@@ -1,9 +1,11 @@
+import { HelpCircleIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const faqBlock = defineType({
   name: 'faqBlock',
   title: 'FAQ Accordion Section Block',
   type: 'object',
+  icon: HelpCircleIcon,
   fields: [
     defineField({
       name: 'eyebrow',

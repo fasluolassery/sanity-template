@@ -1,9 +1,11 @@
+import { ThLargeIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const servicesGridBlock = defineType({
   name: 'servicesGridBlock',
   title: 'Services Grid Section Block',
   type: 'object',
+  icon: ThLargeIcon,
   fields: [
     defineField({
       name: 'eyebrow',

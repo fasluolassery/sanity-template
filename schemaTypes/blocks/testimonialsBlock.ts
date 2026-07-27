@@ -1,9 +1,11 @@
+import { CommentIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const testimonialsBlock = defineType({
   name: 'testimonialsBlock',
   title: 'Client Testimonials Block',
   type: 'object',
+  icon: CommentIcon,
   fields: [
     defineField({
       name: 'eyebrow',

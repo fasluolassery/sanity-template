@@ -1,9 +1,11 @@
+import { ControlsIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const siteSettings = defineType({
   name: 'siteSettings',
   title: 'Site Settings & Global SEO',
   type: 'document',
+  icon: ControlsIcon,
   fields: [
     defineField({
       name: 'siteTitle',
