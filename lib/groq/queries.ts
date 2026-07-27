@@ -5,6 +5,7 @@ import {
   imageWithAltFragment,
   linkFragment,
   ctaFragment,
+  faqBlockFragment,
 } from './fragments'
 
 /**
@@ -65,6 +66,9 @@ export const SERVICE_BY_SLUG_QUERY = groq`
     icon,
     tagline,
     body,
+    faqs {
+      ${faqBlockFragment}
+    },
     featured,
     coverImage {
       ${imageWithAltFragment}

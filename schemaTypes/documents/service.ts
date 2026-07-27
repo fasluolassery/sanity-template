@@ -56,6 +56,13 @@ export const service = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'faqs',
+      title: 'Service-Specific FAQs',
+      type: 'faqBlock',
+      group: 'content',
+      description: 'Optional FAQ accordion section answering questions specific to this service.',
+    }),
+    defineField({
       name: 'featured',
       title: 'Highlight as Featured Service',
       type: 'boolean',

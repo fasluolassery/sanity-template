@@ -132,6 +132,7 @@ export interface ServiceDetailData {
   icon?: string
   tagline: string
   body?: any
+  faqs?: FAQBlockData
   featured?: boolean
   coverImage?: SanityImage
   seo?: SanitySEO
