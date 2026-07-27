@@ -77,6 +77,7 @@ import { CTABlock } from '@/components/sections/CTABlock'
 import { FAQBlock } from '@/components/sections/FAQBlock'
 import { RichTextBlock } from '@/components/sections/RichTextBlock'
 import { StatsBlock } from '@/components/sections/StatsBlock'
+import { LogoCloudBlock } from '@/components/sections/LogoCloudBlock'
 import type { PageBlock } from '@/sanity/lib/types'
 
 const blockComponents: Record<string, React.ComponentType<any>> = {
@@ -86,6 +87,7 @@ const blockComponents: Record<string, React.ComponentType<any>> = {
   faqBlock: FAQBlock,
   richTextBlock: RichTextBlock,
   statsBlock: StatsBlock,
+  logoCloudBlock: LogoCloudBlock,
 }
 
 export function PageBuilder({ blocks }: { blocks: PageBlock[] }) {
@@ -168,6 +170,6 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 ## 🎨 Schema Architecture & Conventions
 
 - **Objects (`schemaTypes/objects/`)**: Atomic field definitions (`seo`, `link`, `cta`, `imageWithAlt`, `responsiveImage`, `richText`).
-- **Blocks (`schemaTypes/blocks/`)**: Dynamic section modules (`heroBlock`, `servicesGridBlock`, `ctaBlock`, `faqBlock`, `richTextBlock`, `statsBlock`).
+- **Blocks (`schemaTypes/blocks/`)**: Dynamic section modules (`heroBlock`, `servicesGridBlock`, `ctaBlock`, `faqBlock`, `richTextBlock`, `statsBlock`, `logoCloudBlock`).
 - **Documents (`schemaTypes/documents/`)**: Standard collections (`page`, `service`, `post`) & Singletons (`siteSettings`, `navigation`, `footer`).
 - **Singletons**: Restricted in Studio Desk (`desk/structure.ts`) so content managers cannot delete or duplicate Global Settings, Header, or Footer documents.

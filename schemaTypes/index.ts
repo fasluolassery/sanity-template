@@ -15,6 +15,7 @@ import { ctaBlock } from './blocks/ctaBlock'
 import { faqBlock } from './blocks/faqBlock'
 import { richTextBlock } from './blocks/richTextBlock'
 import { statsBlock } from './blocks/statsBlock'
+import { logoCloudBlock } from './blocks/logoCloudBlock'
 
 // Documents
 import { page } from './documents/page'
@@ -40,6 +41,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   faqBlock,
   richTextBlock,
   statsBlock,
+  logoCloudBlock,
 
   // Documents
   page,

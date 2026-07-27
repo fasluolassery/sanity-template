@@ -40,6 +40,7 @@ export const page = defineType({
         defineArrayMember({ type: 'faqBlock' }),
         defineArrayMember({ type: 'richTextBlock' }),
         defineArrayMember({ type: 'statsBlock' }),
+        defineArrayMember({ type: 'logoCloudBlock' }),
       ],
     }),
     defineField({

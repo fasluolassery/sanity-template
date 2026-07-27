@@ -130,6 +130,20 @@ export interface StatsBlockData {
   stats: StatItemData[]
 }
 
+export interface LogoItemData {
+  _key: string
+  companyName: string
+  logo: SanityImage
+  link?: string
+}
+
+export interface LogoCloudBlockData {
+  _key: string
+  _type: 'logoCloudBlock'
+  heading?: string
+  logos: LogoItemData[]
+}
+
 export type PageBlock =
   | HeroBlockData
   | ServicesGridBlockData
@@ -137,6 +151,7 @@ export type PageBlock =
   | FAQBlockData
   | RichTextBlockData
   | StatsBlockData
+  | LogoCloudBlockData
 
 export interface PageData {
   _id: string

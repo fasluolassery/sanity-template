@@ -162,6 +162,21 @@ export const statsBlockFragment = `
   }
 `
 
+export const logoCloudBlockFragment = `
+  _type == "logoCloudBlock" => {
+    _type,
+    heading,
+    logos[] {
+      _key,
+      companyName,
+      logo {
+        ${imageWithAltFragment}
+      },
+      link
+    }
+  }
+`
+
 export const pageBuilderFragment = `
   pageBuilder[] {
     _key,
@@ -171,6 +186,7 @@ export const pageBuilderFragment = `
     ${ctaBlockFragment},
     ${faqBlockFragment},
     ${richTextBlockFragment},
-    ${statsBlockFragment}
+    ${statsBlockFragment},
+    ${logoCloudBlockFragment}
   }
 `
