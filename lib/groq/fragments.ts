@@ -196,6 +196,33 @@ export const testimonialsBlockFragment = `
   }
 `
 
+export const teamGridBlockFragment = `
+  _type == "teamGridBlock" => {
+    _type,
+    eyebrow,
+    heading,
+    description,
+    displayMode,
+    groupPhoto {
+      ${responsiveImageFragment}
+    },
+    members[] {
+      _key,
+      name,
+      role,
+      photo {
+        ${imageWithAltFragment}
+      },
+      bio,
+      socialLinks[] {
+        _key,
+        platform,
+        url
+      }
+    }
+  }
+`
+
 export const pageBuilderFragment = `
   pageBuilder[] {
     _key,
@@ -207,6 +234,7 @@ export const pageBuilderFragment = `
     ${richTextBlockFragment},
     ${statsBlockFragment},
     ${logoCloudBlockFragment},
-    ${testimonialsBlockFragment}
+    ${testimonialsBlockFragment},
+    ${teamGridBlockFragment}
   }
 `

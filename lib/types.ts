@@ -162,6 +162,26 @@ export interface TestimonialsBlockData {
   testimonials: TestimonialItemData[]
 }
 
+export interface TeamMemberData {
+  _key: string
+  name: string
+  role?: string
+  photo?: SanityImage
+  bio?: string
+  socialLinks?: Array<{ _key: string; platform: string; url: string }>
+}
+
+export interface TeamGridBlockData {
+  _key: string
+  _type: 'teamGridBlock'
+  eyebrow?: string
+  heading?: string
+  description?: string
+  displayMode: 'grid' | 'singleGroupImage'
+  groupPhoto?: ResponsiveImageData
+  members?: TeamMemberData[]
+}
+
 export type PageBlock =
   | HeroBlockData
   | ServicesGridBlockData
@@ -171,6 +191,7 @@ export type PageBlock =
   | StatsBlockData
   | LogoCloudBlockData
   | TestimonialsBlockData
+  | TeamGridBlockData
 
 export interface PageData {
   _id: string
