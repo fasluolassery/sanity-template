@@ -117,6 +117,7 @@ export const servicesGridBlockFragment = `
 export const ctaBlockFragment = `
   _type == "ctaBlock" => {
     _type,
+    eyebrow,
     title,
     description,
     ctas[] {

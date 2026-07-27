@@ -7,15 +7,15 @@ export const faqBlock = defineType({
   fields: [
     defineField({
       name: 'eyebrow',
-      title: 'Section Tag',
+      title: 'Section Tag / Eyebrow',
       type: 'string',
-      initialValue: 'FAQ',
+      description: 'Optional small tagline displayed above headline.',
     }),
     defineField({
       name: 'heading',
       title: 'Section Heading',
       type: 'string',
-      initialValue: 'Frequently Asked Questions',
+      description: 'Optional section heading (e.g. "Frequently Asked Questions").',
     }),
     defineField({
       name: 'description',
@@ -27,6 +27,7 @@ export const faqBlock = defineType({
       name: 'faqs',
       title: 'Questions & Answers',
       type: 'array',
+      validation: (Rule) => Rule.min(1).warning('Recommended to add at least 1 FAQ item.'),
       of: [
         defineArrayMember({
           type: 'object',

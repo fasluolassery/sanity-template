@@ -87,6 +87,7 @@ export interface ServicesGridBlockData {
 export interface CTABlockData {
   _key: string
   _type: 'ctaBlock'
+  eyebrow?: string
   title: string
   description?: string
   ctas?: SanityCTA[]

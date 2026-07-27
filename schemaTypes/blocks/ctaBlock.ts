@@ -6,6 +6,12 @@ export const ctaBlock = defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'eyebrow',
+      title: 'Eyebrow Badge Text',
+      type: 'string',
+      description: 'Optional small tagline displayed above headline.',
+    }),
+    defineField({
       name: 'title',
       title: 'Banner Headline',
       type: 'string',
@@ -22,16 +28,18 @@ export const ctaBlock = defineType({
       title: 'Action Buttons',
       type: 'array',
       of: [defineArrayMember({ type: 'cta' })],
+      validation: (Rule) => Rule.max(3).warning('Recommended maximum 2-3 buttons.'),
     }),
   ],
   preview: {
     select: {
       title: 'title',
+      subtitle: 'eyebrow',
     },
-    prepare({ title }) {
+    prepare({ title, subtitle }) {
       return {
         title: `CTA Banner: ${title || 'Untitled'}`,
-        subtitle: 'CTA Banner Section',
+        subtitle: subtitle ? `Badge: ${subtitle}` : 'CTA Banner Section',
       }
     },
   },

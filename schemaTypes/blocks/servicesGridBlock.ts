@@ -9,7 +9,7 @@ export const servicesGridBlock = defineType({
       name: 'eyebrow',
       title: 'Section Tag / Eyebrow',
       type: 'string',
-      initialValue: 'OUR SERVICES',
+      description: 'Optional small tagline displayed above headline.',
     }),
     defineField({
       name: 'heading',
