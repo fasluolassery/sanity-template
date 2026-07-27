@@ -29,7 +29,7 @@ Welcome to the Sanity Studio & Centralized Content Architecture! This repository
 
 ---
 
-## 🔌 Frontend Integration Guide (for Next.js Teammate)
+## 🔌 Next.js Frontend Integration Guide
 
 ### 1. Fetching Home Page Data in Next.js Server Components
 
