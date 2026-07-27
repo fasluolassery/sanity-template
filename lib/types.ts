@@ -182,6 +182,24 @@ export interface TeamGridBlockData {
   members?: TeamMemberData[]
 }
 
+export interface ValuePropItemData {
+  _key: string
+  title?: string
+  description?: string
+  icon?: string
+  image?: SanityImage
+}
+
+export interface WhyChooseUsBlockData {
+  _key: string
+  _type: 'whyChooseUsBlock'
+  eyebrow?: string
+  heading?: string
+  description?: string
+  ctas?: SanityCTA[]
+  items: ValuePropItemData[]
+}
+
 export type PageBlock =
   | HeroBlockData
   | ServicesGridBlockData
@@ -192,6 +210,7 @@ export type PageBlock =
   | LogoCloudBlockData
   | TestimonialsBlockData
   | TeamGridBlockData
+  | WhyChooseUsBlockData
 
 export interface PageData {
   _id: string

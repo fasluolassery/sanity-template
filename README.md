@@ -80,6 +80,7 @@ import { StatsBlock } from '@/components/sections/StatsBlock'
 import { LogoCloudBlock } from '@/components/sections/LogoCloudBlock'
 import { TestimonialsBlock } from '@/components/sections/TestimonialsBlock'
 import { TeamGridBlock } from '@/components/sections/TeamGridBlock'
+import { WhyChooseUsBlock } from '@/components/sections/WhyChooseUsBlock'
 import type { PageBlock } from '@/sanity/lib/types'
 
 const blockComponents: Record<string, React.ComponentType<any>> = {
@@ -92,6 +93,7 @@ const blockComponents: Record<string, React.ComponentType<any>> = {
   logoCloudBlock: LogoCloudBlock,
   testimonialsBlock: TestimonialsBlock,
   teamGridBlock: TeamGridBlock,
+  whyChooseUsBlock: WhyChooseUsBlock,
 }
 
 export function PageBuilder({ blocks }: { blocks: PageBlock[] }) {
@@ -174,6 +176,6 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 ## 🎨 Schema Architecture & Conventions
 
 - **Objects (`schemaTypes/objects/`)**: Atomic field definitions (`seo`, `link`, `cta`, `imageWithAlt`, `responsiveImage`, `richText`).
-- **Blocks (`schemaTypes/blocks/`)**: Dynamic section modules (`heroBlock`, `servicesGridBlock`, `ctaBlock`, `faqBlock`, `richTextBlock`, `statsBlock`, `logoCloudBlock`, `testimonialsBlock`, `teamGridBlock`).
+- **Blocks (`schemaTypes/blocks/`)**: Dynamic section modules (`heroBlock`, `servicesGridBlock`, `ctaBlock`, `faqBlock`, `richTextBlock`, `statsBlock`, `logoCloudBlock`, `testimonialsBlock`, `teamGridBlock`, `whyChooseUsBlock`).
 - **Documents (`schemaTypes/documents/`)**: Standard collections (`page`, `service`, `post`) & Singletons (`siteSettings`, `navigation`, `footer`).
 - **Singletons**: Restricted in Studio Desk (`desk/structure.ts`) so content managers cannot delete or duplicate Global Settings, Header, or Footer documents.

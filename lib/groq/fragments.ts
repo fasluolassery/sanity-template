@@ -223,6 +223,27 @@ export const teamGridBlockFragment = `
   }
 `
 
+export const whyChooseUsBlockFragment = `
+  _type == "whyChooseUsBlock" => {
+    _type,
+    eyebrow,
+    heading,
+    description,
+    ctas[] {
+      ${ctaFragment}
+    },
+    items[] {
+      _key,
+      title,
+      description,
+      icon,
+      image {
+        ${imageWithAltFragment}
+      }
+    }
+  }
+`
+
 export const pageBuilderFragment = `
   pageBuilder[] {
     _key,
@@ -235,6 +256,7 @@ export const pageBuilderFragment = `
     ${statsBlockFragment},
     ${logoCloudBlockFragment},
     ${testimonialsBlockFragment},
-    ${teamGridBlockFragment}
+    ${teamGridBlockFragment},
+    ${whyChooseUsBlockFragment}
   }
 `

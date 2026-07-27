@@ -43,6 +43,7 @@ export const page = defineType({
         defineArrayMember({ type: 'logoCloudBlock' }),
         defineArrayMember({ type: 'testimonialsBlock' }),
         defineArrayMember({ type: 'teamGridBlock' }),
+        defineArrayMember({ type: 'whyChooseUsBlock' }),
       ],
     }),
     defineField({

@@ -18,6 +18,7 @@ import { statsBlock } from './blocks/statsBlock'
 import { logoCloudBlock } from './blocks/logoCloudBlock'
 import { testimonialsBlock } from './blocks/testimonialsBlock'
 import { teamGridBlock } from './blocks/teamGridBlock'
+import { whyChooseUsBlock } from './blocks/whyChooseUsBlock'
 
 // Documents
 import { page } from './documents/page'
@@ -46,6 +47,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   logoCloudBlock,
   testimonialsBlock,
   teamGridBlock,
+  whyChooseUsBlock,
 
   // Documents
   page,
