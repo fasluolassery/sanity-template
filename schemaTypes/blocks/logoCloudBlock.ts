@@ -6,10 +6,22 @@ export const logoCloudBlock = defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'eyebrow',
+      title: 'Eyebrow Badge Text',
+      type: 'string',
+      description: 'Optional small tagline displayed above headline.',
+    }),
+    defineField({
       name: 'heading',
       title: 'Section Headline',
       type: 'string',
-      description: 'Optional tag line or heading (e.g. "Trusted by industry leaders worldwide").',
+      description: 'Optional heading (e.g. "Trusted by industry leaders worldwide").',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Section Description',
+      type: 'text',
+      rows: 2,
     }),
     defineField({
       name: 'logos',

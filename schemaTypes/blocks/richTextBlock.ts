@@ -6,8 +6,8 @@ export const richTextBlock = defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'sectionTitle',
-      title: 'Optional Section Title',
+      name: 'heading',
+      title: 'Optional Section Headline',
       type: 'string',
     }),
     defineField({
@@ -19,7 +19,7 @@ export const richTextBlock = defineType({
   ],
   preview: {
     select: {
-      title: 'sectionTitle',
+      title: 'heading',
     },
     prepare({ title }) {
       return {

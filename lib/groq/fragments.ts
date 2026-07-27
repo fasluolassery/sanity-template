@@ -118,7 +118,7 @@ export const ctaBlockFragment = `
   _type == "ctaBlock" => {
     _type,
     eyebrow,
-    title,
+    heading,
     description,
     ctas[] {
       ${ctaFragment}
@@ -143,7 +143,7 @@ export const faqBlockFragment = `
 export const richTextBlockFragment = `
   _type == "richTextBlock" => {
     _type,
-    sectionTitle,
+    heading,
     body
   }
 `
@@ -166,7 +166,9 @@ export const statsBlockFragment = `
 export const logoCloudBlockFragment = `
   _type == "logoCloudBlock" => {
     _type,
+    eyebrow,
     heading,
+    description,
     logos[] {
       _key,
       companyName,

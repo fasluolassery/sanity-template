@@ -12,7 +12,7 @@ export const ctaBlock = defineType({
       description: 'Optional small tagline displayed above headline.',
     }),
     defineField({
-      name: 'title',
+      name: 'heading',
       title: 'Banner Headline',
       type: 'string',
       validation: (Rule) => Rule.required(),
@@ -33,7 +33,7 @@ export const ctaBlock = defineType({
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'heading',
       subtitle: 'eyebrow',
     },
     prepare({ title, subtitle }) {

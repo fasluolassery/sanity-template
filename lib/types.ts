@@ -88,7 +88,7 @@ export interface CTABlockData {
   _key: string
   _type: 'ctaBlock'
   eyebrow?: string
-  title: string
+  heading: string
   description?: string
   ctas?: SanityCTA[]
 }
@@ -111,7 +111,7 @@ export interface FAQBlockData {
 export interface RichTextBlockData {
   _key: string
   _type: 'richTextBlock'
-  sectionTitle?: string
+  heading?: string
   body: any // Portable Text array
 }
 
@@ -141,7 +141,9 @@ export interface LogoItemData {
 export interface LogoCloudBlockData {
   _key: string
   _type: 'logoCloudBlock'
+  eyebrow?: string
   heading?: string
+  description?: string
   logos: LogoItemData[]
 }
 
