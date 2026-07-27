@@ -147,6 +147,21 @@ export const richTextBlockFragment = `
   }
 `
 
+export const statsBlockFragment = `
+  _type == "statsBlock" => {
+    _type,
+    eyebrow,
+    heading,
+    description,
+    stats[] {
+      _key,
+      value,
+      label,
+      description
+    }
+  }
+`
+
 export const pageBuilderFragment = `
   pageBuilder[] {
     _key,
@@ -155,6 +170,7 @@ export const pageBuilderFragment = `
     ${servicesGridBlockFragment},
     ${ctaBlockFragment},
     ${faqBlockFragment},
-    ${richTextBlockFragment}
+    ${richTextBlockFragment},
+    ${statsBlockFragment}
   }
 `

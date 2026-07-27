@@ -14,6 +14,7 @@ import { servicesGridBlock } from './blocks/servicesGridBlock'
 import { ctaBlock } from './blocks/ctaBlock'
 import { faqBlock } from './blocks/faqBlock'
 import { richTextBlock } from './blocks/richTextBlock'
+import { statsBlock } from './blocks/statsBlock'
 
 // Documents
 import { page } from './documents/page'
@@ -38,6 +39,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   ctaBlock,
   faqBlock,
   richTextBlock,
+  statsBlock,
 
   // Documents
   page,

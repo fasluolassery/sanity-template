@@ -114,8 +114,29 @@ export interface RichTextBlockData {
   body: any // Portable Text array
 }
 
+export interface StatItemData {
+  _key: string
+  value: string
+  label: string
+  description?: string
+}
+
+export interface StatsBlockData {
+  _key: string
+  _type: 'statsBlock'
+  eyebrow?: string
+  heading?: string
+  description?: string
+  stats: StatItemData[]
+}
+
 export type PageBlock =
-  HeroBlockData | ServicesGridBlockData | CTABlockData | FAQBlockData | RichTextBlockData
+  | HeroBlockData
+  | ServicesGridBlockData
+  | CTABlockData
+  | FAQBlockData
+  | RichTextBlockData
+  | StatsBlockData
 
 export interface PageData {
   _id: string
