@@ -218,3 +218,35 @@ export const ROBOTS_QUERY = groq`
     disallowedPaths
   }
 `
+
+/**
+ * Fetch all CRM Lead Statuses ordered by order ascending
+ */
+export const ALL_LEAD_STATUSES_QUERY = groq`
+  *[_type == "leadStatus"] | order(order asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    order,
+    color,
+    description,
+    isDefault,
+    isActive
+  }
+`
+
+/**
+ * Fetch active CRM Lead Statuses ordered by order ascending
+ */
+export const ACTIVE_LEAD_STATUSES_QUERY = groq`
+  *[_type == "leadStatus" && isActive != false] | order(order asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    order,
+    color,
+    description,
+    isDefault,
+    isActive
+  }
+`

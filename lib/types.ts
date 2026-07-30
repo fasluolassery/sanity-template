@@ -291,3 +291,14 @@ export interface FooterData {
   }>
   legalLinks?: Array<{ _key: string; label: string; link: SanityLink }>
 }
+
+export interface SanityLeadStatus {
+  _id?: string
+  title: string
+  slug: string
+  order: number
+  color: string
+  description?: string
+  isDefault?: boolean
+  isActive?: boolean
+}

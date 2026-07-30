@@ -27,6 +27,7 @@ import { post } from './documents/post'
 import { siteSettings } from './documents/siteSettings'
 import { navigation } from './documents/navigation'
 import { footer } from './documents/footer'
+import { leadStatus } from './documents/leadStatus'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   // Primitive Objects
@@ -56,4 +57,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   siteSettings,
   navigation,
   footer,
+  leadStatus,
 ]

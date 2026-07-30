@@ -5,6 +5,7 @@ import {
   ComponentIcon,
   DocumentIcon,
   EditIcon,
+  TagIcon,
 } from '@sanity/icons'
 import { StructureResolver } from 'sanity/structure'
 
@@ -44,11 +45,15 @@ export const structure: StructureResolver = (S) =>
         .title('Blog Posts')
         .icon(EditIcon)
         .child(S.documentTypeList('post').title('All Blog Posts')),
+      S.listItem()
+        .title('CRM Lead Statuses')
+        .icon(TagIcon)
+        .child(S.documentTypeList('leadStatus').title('All Lead Statuses')),
 
       // Filter out singletons from generic list
       ...S.documentTypeListItems().filter(
         (listItem) =>
           !singletonTypes.has(listItem.getId() || '') &&
-          !['page', 'service', 'post'].includes(listItem.getId() || '')
+          !['page', 'service', 'post', 'leadStatus'].includes(listItem.getId() || '')
       ),
     ])
