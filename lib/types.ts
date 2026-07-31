@@ -1,6 +1,10 @@
+import type { PortableTextBlock } from '@portabletext/types'
+
 /**
  * Shared Sanity TypeScript Definitions for Frontend Components
  */
+
+export type PortableTextContent = PortableTextBlock[] | PortableTextBlock
 
 export interface SanityImage {
   asset?: {
@@ -96,7 +100,7 @@ export interface CTABlockData {
 export interface FAQItemData {
   _key: string
   question: string
-  answer: any // Portable Text array
+  answer: PortableTextContent
 }
 
 export interface FAQBlockData {
@@ -112,7 +116,7 @@ export interface RichTextBlockData {
   _key: string
   _type: 'richTextBlock'
   heading?: string
-  body: any // Portable Text array
+  body: PortableTextContent
 }
 
 export interface StatItemData {
@@ -229,7 +233,7 @@ export interface ServiceDetailData {
   slug: string
   icon?: string
   tagline: string
-  body?: any
+  body?: PortableTextContent
   faqs?: FAQBlockData
   featured?: boolean
   coverImage?: SanityImage
@@ -243,7 +247,7 @@ export interface PostData {
   publishedAt: string
   authorName?: string
   excerpt?: string
-  body?: any
+  body?: PortableTextContent
   mainImage?: SanityImage
   seo?: SanitySEO
 }

@@ -1,4 +1,4 @@
-import { createClient, type QueryParams } from 'next-sanity'
+import { createClient, type QueryParams, type FilteredResponseQueryOptions } from 'next-sanity'
 import { projectId, dataset, apiVersion } from '../env'
 
 export const client = createClient({
@@ -7,6 +7,10 @@ export const client = createClient({
   apiVersion,
   useCdn: process.env.NODE_ENV === 'production',
 })
+
+export type NextFetchOptions = FilteredResponseQueryOptions & {
+  [key: string]: unknown
+}
 
 /**
  * Typed fetch wrapper for Next.js Server Components with caching control
@@ -22,10 +26,11 @@ export async function sanityFetch<QueryResponse>({
   revalidate?: number | false
   tags?: string[]
 }): Promise<QueryResponse> {
-  return client.fetch<QueryResponse>(query, params, {
+  const options: Record<string, unknown> = {
     next: {
       revalidate,
       tags,
     },
-  } as any)
+  }
+  return client.fetch<QueryResponse>(query, params, options as FilteredResponseQueryOptions)
 }

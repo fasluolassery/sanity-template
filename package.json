@@ -10,7 +10,7 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "typecheck": "tsc --noEmit",
-    "typegen": "sanity typegen generate",
+    "typegen": "sanity schema extract && sanity typegen generate",
     "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "husky"

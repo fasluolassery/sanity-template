@@ -4,6 +4,8 @@ node_modules/
 # Sanity Studio runtime & build output
 .sanity/
 dist/
+schema.json
+sanity.types.ts
 
 # Environment files
 .env
