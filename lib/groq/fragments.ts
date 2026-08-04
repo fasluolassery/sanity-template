@@ -265,18 +265,18 @@ export const pageBuilderFragment = `
 `
 
 export const themeSettingsFragment = `
-  primaryColor,
-  secondaryColor,
-  accentColor,
-  primaryButtonBg,
-  primaryButtonTxt,
-  primaryButtonHover,
-  secondaryButtonBg,
-  secondaryButtonTxt,
-  secondaryButtonHover,
-  headingTxt,
-  txtColor,
-  pillBg,
-  pillBorder,
-  pillTxtColor
+  "primaryColor": coalesce(primaryColor.hex, primaryColor),
+  "secondaryColor": coalesce(secondaryColor.hex, secondaryColor),
+  "accentColor": coalesce(accentColor.hex, accentColor),
+  "primaryButtonBg": coalesce(primaryButtonBg.hex, primaryButtonBg),
+  "primaryButtonTxt": coalesce(primaryButtonTxt.hex, primaryButtonTxt),
+  "primaryButtonHover": coalesce(primaryButtonHover.hex, primaryButtonHover),
+  "secondaryButtonBg": coalesce(secondaryButtonBg.hex, secondaryButtonBg),
+  "secondaryButtonTxt": coalesce(secondaryButtonTxt.hex, secondaryButtonTxt),
+  "secondaryButtonHover": coalesce(secondaryButtonHover.hex, secondaryButtonHover),
+  "headingTxt": coalesce(headingTxt.hex, headingTxt),
+  "txtColor": coalesce(txtColor.hex, txtColor),
+  "pillBg": coalesce(pillBg.hex, pillBg),
+  "pillBorder": coalesce(pillBorder.hex, pillBorder),
+  "pillTxtColor": coalesce(pillTxtColor.hex, pillTxtColor)
 `
