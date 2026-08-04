@@ -10,5 +10,5 @@ export const templateConfig = {
   defaultDataset: 'production',
   defaultApiVersion: '2024-03-01',
   fallbackProjectId: 'placeholder-project-id',
-  singletonDocumentTypes: ['siteSettings', 'navigation', 'footer'],
+  singletonDocumentTypes: ['siteSettings', 'navigation', 'footer', 'themeSettings'],
 }

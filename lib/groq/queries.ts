@@ -6,6 +6,7 @@ import {
   linkFragment,
   ctaFragment,
   faqBlockFragment,
+  themeSettingsFragment,
 } from './fragments'
 
 /**
@@ -248,5 +249,14 @@ export const ACTIVE_LEAD_STATUSES_QUERY = groq`
     description,
     isDefault,
     isActive
+  }
+`
+
+/**
+ * Fetch Singleton: Theme & Brand Styling Settings
+ */
+export const THEME_SETTINGS_QUERY = groq`
+  *[_type == "themeSettings"][0] {
+    ${themeSettingsFragment}
   }
 `

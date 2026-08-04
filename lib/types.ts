@@ -306,3 +306,20 @@ export interface SanityLeadStatus {
   isDefault?: boolean
   isActive?: boolean
 }
+
+export interface ThemeSettingsData {
+  primaryColor: string
+  secondaryColor: string
+  accentColor: string
+  primaryButtonBg: string
+  primaryButtonTxt: string
+  primaryButtonHover: string
+  secondaryButtonBg: string
+  secondaryButtonTxt: string
+  secondaryButtonHover: string
+  headingTxt: string
+  txtColor: string
+  pillBg: string
+  pillBorder: string
+  pillTxtColor: string
+}

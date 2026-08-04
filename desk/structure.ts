@@ -6,11 +6,12 @@ import {
   DocumentIcon,
   EditIcon,
   TagIcon,
+  DropIcon,
 } from '@sanity/icons'
 import { StructureResolver } from 'sanity/structure'
 
 // Define document types that should act as singletons
-const singletonTypes = new Set(['siteSettings', 'navigation', 'footer'])
+const singletonTypes = new Set(['siteSettings', 'navigation', 'footer', 'themeSettings'])
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -25,6 +26,10 @@ export const structure: StructureResolver = (S) =>
         .title('Header Navigation')
         .icon(MenuIcon)
         .child(S.document().schemaType('navigation').documentId('navigation')),
+      S.listItem()
+        .title('Theme Settings')
+        .icon(DropIcon)
+        .child(S.document().schemaType('themeSettings').documentId('themeSettings')),
       S.listItem()
         .title('Footer Configuration')
         .icon(ComponentIcon)

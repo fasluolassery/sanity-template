@@ -28,6 +28,7 @@ import { siteSettings } from './documents/siteSettings'
 import { navigation } from './documents/navigation'
 import { footer } from './documents/footer'
 import { leadStatus } from './documents/leadStatus'
+import { themeSettings } from './documents/themeSettings'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   // Primitive Objects
@@ -58,4 +59,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   navigation,
   footer,
   leadStatus,
+  themeSettings,
 ]

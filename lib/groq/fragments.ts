@@ -263,3 +263,20 @@ export const pageBuilderFragment = `
     ${whyChooseUsBlockFragment}
   }
 `
+
+export const themeSettingsFragment = `
+  primaryColor,
+  secondaryColor,
+  accentColor,
+  primaryButtonBg,
+  primaryButtonTxt,
+  primaryButtonHover,
+  secondaryButtonBg,
+  secondaryButtonTxt,
+  secondaryButtonHover,
+  headingTxt,
+  txtColor,
+  pillBg,
+  pillBorder,
+  pillTxtColor
+`
