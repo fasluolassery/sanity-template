@@ -207,6 +207,64 @@ export interface WhyChooseUsBlockData {
   items: ValuePropItemData[]
 }
 
+export interface ContactFormFieldConfig {
+  label?: string
+  placeholder?: string
+  required?: boolean
+  errorMessage?: string
+}
+
+export interface ContactServiceOption {
+  _id: string
+  title: string
+  slug: string
+}
+
+export interface ContactServiceFieldConfig {
+  label?: string
+  placeholder?: string
+  required?: boolean
+  errorMessage?: string
+  serviceSelectionMode: 'all' | 'manual' | 'custom'
+  options?: ContactServiceOption[] | string[]
+}
+
+export interface CustomFormFieldData {
+  _key: string
+  fieldName: string
+  label: string
+  placeholder?: string
+  fieldType: 'text' | 'email' | 'phone' | 'select' | 'textarea' | 'checkbox'
+  required?: boolean
+  errorMessage?: string
+  options?: string[]
+}
+
+export interface ContactBlockData {
+  _key: string
+  _type: 'contactBlock'
+  eyebrow?: string
+  heading: string
+  description?: string
+  showContactInfo?: boolean
+  email?: string
+  phone?: string
+  address?: string
+  workingHours?: string
+  mapUrl?: string
+  firstNameField?: ContactFormFieldConfig
+  lastNameField?: ContactFormFieldConfig
+  emailField?: ContactFormFieldConfig
+  phoneField?: ContactFormFieldConfig
+  serviceField?: ContactServiceFieldConfig
+  messageField?: ContactFormFieldConfig
+  additionalCustomFields?: CustomFormFieldData[]
+  submitButtonLabel?: string
+  successTitle?: string
+  successMessage?: string
+  formErrorMessage?: string
+}
+
 export type PageBlock =
   | HeroBlockData
   | ServicesGridBlockData
@@ -218,6 +276,7 @@ export type PageBlock =
   | TestimonialsBlockData
   | TeamGridBlockData
   | WhyChooseUsBlockData
+  | ContactBlockData
 
 export interface PageData {
   _id: string

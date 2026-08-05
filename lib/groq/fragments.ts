@@ -247,6 +247,60 @@ export const whyChooseUsBlockFragment = `
   }
 `
 
+export const contactBlockFragment = `
+  _type == "contactBlock" => {
+    _type,
+    eyebrow,
+    heading,
+    description,
+    showContactInfo,
+    email,
+    phone,
+    address,
+    workingHours,
+    mapUrl,
+    firstNameField,
+    lastNameField,
+    emailField,
+    phoneField,
+    serviceField {
+      label,
+      placeholder,
+      required,
+      errorMessage,
+      serviceSelectionMode,
+      "options": select(
+        serviceSelectionMode == "all" => *[_type == "service"] | order(title asc) {
+          _id,
+          title,
+          "slug": slug.current
+        },
+        serviceSelectionMode == "manual" => selectedServices[]-> {
+          _id,
+          title,
+          "slug": slug.current
+        },
+        serviceSelectionMode == "custom" => customOptions
+      )
+    },
+    messageField,
+    additionalCustomFields[] {
+      _key,
+      fieldName,
+      label,
+      placeholder,
+      fieldType,
+      required,
+      errorMessage,
+      options
+    },
+    submitButtonLabel,
+    successTitle,
+    successMessage,
+    formErrorMessage
+  }
+`
+
 export const pageBuilderFragment = `
   pageBuilder[] {
     _key,
@@ -260,7 +314,8 @@ export const pageBuilderFragment = `
     ${logoCloudBlockFragment},
     ${testimonialsBlockFragment},
     ${teamGridBlockFragment},
-    ${whyChooseUsBlockFragment}
+    ${whyChooseUsBlockFragment},
+    ${contactBlockFragment}
   }
 `
 
