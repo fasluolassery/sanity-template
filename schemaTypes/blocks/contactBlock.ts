@@ -18,18 +18,13 @@ export const contactBlock = defineType({
       options: { collapsible: true, collapsed: false },
     },
     {
-      name: 'formFields',
-      title: '3. Core Form Fields & Error Messages',
+      name: 'formBuilder',
+      title: '3. Dynamic Form Fields Builder',
       options: { collapsible: true, collapsed: false },
     },
     {
-      name: 'customFields',
-      title: '4. Additional Custom Form Fields',
-      options: { collapsible: true, collapsed: true },
-    },
-    {
       name: 'formResponse',
-      title: '5. Button & Submission Feedback',
+      title: '4. Button & Submission Feedback',
       options: { collapsible: true, collapsed: false },
     },
   ],
@@ -109,266 +104,25 @@ export const contactBlock = defineType({
       hidden: ({ parent }) => !parent?.showContactInfo,
     }),
 
-    // --- 3. CORE FORM FIELDS & PER-FIELD ERROR MESSAGES ---
-    // 3.1 First Name Field
+    // --- 3. UNIFIED DYNAMIC FORM FIELDS BUILDER ---
     defineField({
-      name: 'firstNameField',
-      title: 'First Name Input Config',
-      type: 'object',
-      fieldset: 'formFields',
-      fields: [
-        defineField({
-          name: 'label',
-          title: 'Field Label',
-          type: 'string',
-          initialValue: 'First Name',
-        }),
-        defineField({
-          name: 'placeholder',
-          title: 'Input Placeholder',
-          type: 'string',
-          initialValue: 'John',
-        }),
-        defineField({
-          name: 'required',
-          title: 'Is Required?',
-          type: 'boolean',
-          initialValue: true,
-        }),
-        defineField({
-          name: 'errorMessage',
-          title: 'Validation Error Message',
-          type: 'string',
-          description: 'Error message shown when validation fails.',
-          initialValue: 'Please enter your first name.',
-        }),
-      ],
-    }),
-
-    // 3.2 Last Name Field
-    defineField({
-      name: 'lastNameField',
-      title: 'Last Name Input Config',
-      type: 'object',
-      fieldset: 'formFields',
-      fields: [
-        defineField({
-          name: 'label',
-          title: 'Field Label',
-          type: 'string',
-          initialValue: 'Last Name',
-        }),
-        defineField({
-          name: 'placeholder',
-          title: 'Input Placeholder',
-          type: 'string',
-          initialValue: 'Doe',
-        }),
-        defineField({
-          name: 'required',
-          title: 'Is Required?',
-          type: 'boolean',
-          initialValue: true,
-        }),
-        defineField({
-          name: 'errorMessage',
-          title: 'Validation Error Message',
-          type: 'string',
-          description: 'Error message shown when validation fails.',
-          initialValue: 'Please enter your last name.',
-        }),
-      ],
-    }),
-
-    // 3.3 Email Field
-    defineField({
-      name: 'emailField',
-      title: 'Email Address Input Config',
-      type: 'object',
-      fieldset: 'formFields',
-      fields: [
-        defineField({
-          name: 'label',
-          title: 'Field Label',
-          type: 'string',
-          initialValue: 'Email Address',
-        }),
-        defineField({
-          name: 'placeholder',
-          title: 'Input Placeholder',
-          type: 'string',
-          initialValue: 'john@example.com',
-        }),
-        defineField({
-          name: 'required',
-          title: 'Is Required?',
-          type: 'boolean',
-          initialValue: true,
-        }),
-        defineField({
-          name: 'errorMessage',
-          title: 'Validation Error Message',
-          type: 'string',
-          description: 'Error message shown when validation fails.',
-          initialValue: 'Please enter a valid email address.',
-        }),
-      ],
-    }),
-
-    // 3.4 Phone Field
-    defineField({
-      name: 'phoneField',
-      title: 'Phone Number Input Config',
-      type: 'object',
-      fieldset: 'formFields',
-      fields: [
-        defineField({
-          name: 'label',
-          title: 'Field Label',
-          type: 'string',
-          initialValue: 'Phone Number',
-        }),
-        defineField({
-          name: 'placeholder',
-          title: 'Input Placeholder',
-          type: 'string',
-          initialValue: '+1 (555) 000-0000',
-        }),
-        defineField({
-          name: 'required',
-          title: 'Is Required?',
-          type: 'boolean',
-          initialValue: false,
-        }),
-        defineField({
-          name: 'errorMessage',
-          title: 'Validation Error Message',
-          type: 'string',
-          description: 'Error message shown when validation fails.',
-          initialValue: 'Please enter a valid phone number.',
-        }),
-      ],
-    }),
-
-    // 3.5 Service Select Field (Connected to Services Collection)
-    defineField({
-      name: 'serviceField',
-      title: 'Service Select Dropdown Config',
-      type: 'object',
-      fieldset: 'formFields',
-      fields: [
-        defineField({
-          name: 'label',
-          title: 'Field Label',
-          type: 'string',
-          initialValue: 'Select Service',
-        }),
-        defineField({
-          name: 'placeholder',
-          title: 'Dropdown Placeholder Text',
-          type: 'string',
-          initialValue: 'Choose a service...',
-        }),
-        defineField({
-          name: 'required',
-          title: 'Is Required?',
-          type: 'boolean',
-          initialValue: true,
-        }),
-        defineField({
-          name: 'errorMessage',
-          title: 'Validation Error Message',
-          type: 'string',
-          initialValue: 'Please select a service.',
-        }),
-        defineField({
-          name: 'serviceSelectionMode',
-          title: 'Services Source Mode',
-          type: 'string',
-          description:
-            'Choose how dropdown options are populated: automatically from Services collection, manual reference picker, or custom text list.',
-          options: {
-            list: [
-              { title: 'All Services (Dynamic SSOT from Services Collection)', value: 'all' },
-              { title: 'Manual Selection from Services Collection', value: 'manual' },
-              { title: 'Custom Static Text Options', value: 'custom' },
-            ],
-            layout: 'radio',
-          },
-          initialValue: 'all',
-        }),
-        defineField({
-          name: 'selectedServices',
-          title: 'Select Specific Services',
-          type: 'array',
-          of: [defineArrayMember({ type: 'reference', to: [{ type: 'service' }] })],
-          description: 'Select services from the Services Collection to show in dropdown.',
-          hidden: ({ parent }) => parent?.serviceSelectionMode !== 'manual',
-        }),
-        defineField({
-          name: 'customOptions',
-          title: 'Custom Service Options List',
-          type: 'array',
-          of: [defineArrayMember({ type: 'string' })],
-          description: 'Custom text option strings (e.g. "General Inquiry", "Billing").',
-          hidden: ({ parent }) => parent?.serviceSelectionMode !== 'custom',
-        }),
-      ],
-    }),
-
-    // 3.6 Additional Message Field
-    defineField({
-      name: 'messageField',
-      title: 'Message Textarea Config',
-      type: 'object',
-      fieldset: 'formFields',
-      fields: [
-        defineField({
-          name: 'label',
-          title: 'Field Label',
-          type: 'string',
-          initialValue: 'Message',
-        }),
-        defineField({
-          name: 'placeholder',
-          title: 'Input Placeholder',
-          type: 'string',
-          initialValue: 'Tell us about your project...',
-        }),
-        defineField({
-          name: 'required',
-          title: 'Is Required?',
-          type: 'boolean',
-          initialValue: true,
-        }),
-        defineField({
-          name: 'errorMessage',
-          title: 'Validation Error Message',
-          type: 'string',
-          description: 'Error message shown when validation fails.',
-          initialValue: 'Please enter your message.',
-        }),
-      ],
-    }),
-
-    // --- 4. ADDITIONAL CUSTOM FORM FIELDS BUILDER ---
-    defineField({
-      name: 'additionalCustomFields',
-      title: 'Extra Custom Inputs List',
+      name: 'formFields',
+      title: 'Form Input Fields',
       type: 'array',
-      fieldset: 'customFields',
-      description: 'Add extra custom form inputs beyond the standard core fields.',
+      fieldset: 'formBuilder',
+      description:
+        'Add, reorder, delete, or customize form inputs. Pre-populated with standard contact fields.',
       of: [
         defineArrayMember({
           type: 'object',
           name: 'contactFormField',
-          title: 'Custom Form Input',
+          title: 'Form Field Item',
           fields: [
             defineField({
               name: 'fieldName',
-              title: 'Field Key / ID',
+              title: 'Field Key / Identifier',
               type: 'string',
-              description: 'Unique key identifier (e.g. "companyName", "budget").',
+              description: 'Unique key identifier (e.g. "firstName", "email", "service").',
               validation: (Rule) => Rule.required(),
             }),
             defineField({
@@ -379,7 +133,7 @@ export const contactBlock = defineType({
             }),
             defineField({
               name: 'placeholder',
-              title: 'Input Placeholder',
+              title: 'Input Placeholder Text',
               type: 'string',
             }),
             defineField({
@@ -391,7 +145,8 @@ export const contactBlock = defineType({
                   { title: 'Single Line Text', value: 'text' },
                   { title: 'Email Address', value: 'email' },
                   { title: 'Phone Number', value: 'phone' },
-                  { title: 'Dropdown Select', value: 'select' },
+                  { title: 'Services Collection Dropdown', value: 'serviceSelect' },
+                  { title: 'Standard Custom Dropdown', value: 'select' },
                   { title: 'Multi-line Textarea', value: 'textarea' },
                   { title: 'Checkbox Toggle', value: 'checkbox' },
                 ],
@@ -403,13 +158,51 @@ export const contactBlock = defineType({
               name: 'required',
               title: 'Is Required?',
               type: 'boolean',
-              initialValue: false,
+              initialValue: true,
             }),
             defineField({
               name: 'errorMessage',
               title: 'Validation Error Message',
               type: 'string',
+              description: 'Custom message displayed when validation fails.',
             }),
+
+            // --- Service Select Specific Fields ---
+            defineField({
+              name: 'serviceSelectionMode',
+              title: 'Services Source Mode',
+              type: 'string',
+              description:
+                'Populate dynamically from Services Collection, manual references, or custom options list.',
+              options: {
+                list: [
+                  { title: 'All Services (Dynamic SSOT from Services Collection)', value: 'all' },
+                  { title: 'Manual Selection from Services Collection', value: 'manual' },
+                  { title: 'Custom Static Options', value: 'custom' },
+                ],
+                layout: 'radio',
+              },
+              initialValue: 'all',
+              hidden: ({ parent }) => parent?.fieldType !== 'serviceSelect',
+            }),
+            defineField({
+              name: 'selectedServices',
+              title: 'Select Specific Services',
+              type: 'array',
+              of: [defineArrayMember({ type: 'reference', to: [{ type: 'service' }] })],
+              hidden: ({ parent }) =>
+                parent?.fieldType !== 'serviceSelect' || parent?.serviceSelectionMode !== 'manual',
+            }),
+            defineField({
+              name: 'customServiceOptions',
+              title: 'Custom Service Options',
+              type: 'array',
+              of: [defineArrayMember({ type: 'string' })],
+              hidden: ({ parent }) =>
+                parent?.fieldType !== 'serviceSelect' || parent?.serviceSelectionMode !== 'custom',
+            }),
+
+            // --- Standard Select Specific Options ---
             defineField({
               name: 'options',
               title: 'Dropdown Options List',
@@ -418,11 +211,81 @@ export const contactBlock = defineType({
               hidden: ({ parent }) => parent?.fieldType !== 'select',
             }),
           ],
+          preview: {
+            select: {
+              title: 'label',
+              subtitle: 'fieldType',
+              required: 'required',
+            },
+            prepare({ title, subtitle, required }) {
+              return {
+                title: title || 'Untitled Field',
+                subtitle: `${subtitle || 'text'} ${required ? '(Required)' : '(Optional)'}`,
+              }
+            },
+          },
         }),
+      ],
+      initialValue: [
+        {
+          _type: 'contactFormField',
+          fieldName: 'firstName',
+          label: 'First Name',
+          placeholder: 'John',
+          fieldType: 'text',
+          required: true,
+          errorMessage: 'Please enter your first name.',
+        },
+        {
+          _type: 'contactFormField',
+          fieldName: 'lastName',
+          label: 'Last Name',
+          placeholder: 'Doe',
+          fieldType: 'text',
+          required: true,
+          errorMessage: 'Please enter your last name.',
+        },
+        {
+          _type: 'contactFormField',
+          fieldName: 'email',
+          label: 'Email Address',
+          placeholder: 'john@example.com',
+          fieldType: 'email',
+          required: true,
+          errorMessage: 'Please enter a valid email address.',
+        },
+        {
+          _type: 'contactFormField',
+          fieldName: 'phone',
+          label: 'Phone Number',
+          placeholder: '+1 (555) 000-0000',
+          fieldType: 'phone',
+          required: false,
+          errorMessage: 'Please enter a valid phone number.',
+        },
+        {
+          _type: 'contactFormField',
+          fieldName: 'service',
+          label: 'Select Service',
+          placeholder: 'Choose a service...',
+          fieldType: 'serviceSelect',
+          required: true,
+          errorMessage: 'Please select a service.',
+          serviceSelectionMode: 'all',
+        },
+        {
+          _type: 'contactFormField',
+          fieldName: 'message',
+          label: 'Message',
+          placeholder: 'Tell us about your project...',
+          fieldType: 'textarea',
+          required: true,
+          errorMessage: 'Please enter your message.',
+        },
       ],
     }),
 
-    // --- 5. BUTTON & SUBMISSION FEEDBACK ---
+    // --- 4. BUTTON & SUBMISSION FEEDBACK ---
     defineField({
       name: 'submitButtonLabel',
       title: 'Submit Button Label',
@@ -464,7 +327,7 @@ export const contactBlock = defineType({
     prepare({ title, subtitle }) {
       return {
         title: `Contact Us: ${title || 'Untitled'}`,
-        subtitle: subtitle ? `Badge: ${subtitle}` : 'Contact Section & Form',
+        subtitle: subtitle ? `Badge: ${subtitle}` : 'Dynamic Form Section',
       }
     },
   },

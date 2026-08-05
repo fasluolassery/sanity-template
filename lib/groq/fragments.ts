@@ -259,32 +259,7 @@ export const contactBlockFragment = `
     address,
     workingHours,
     mapUrl,
-    firstNameField,
-    lastNameField,
-    emailField,
-    phoneField,
-    serviceField {
-      label,
-      placeholder,
-      required,
-      errorMessage,
-      serviceSelectionMode,
-      "options": select(
-        serviceSelectionMode == "all" => *[_type == "service"] | order(title asc) {
-          _id,
-          title,
-          "slug": slug.current
-        },
-        serviceSelectionMode == "manual" => selectedServices[]-> {
-          _id,
-          title,
-          "slug": slug.current
-        },
-        serviceSelectionMode == "custom" => customOptions
-      )
-    },
-    messageField,
-    additionalCustomFields[] {
+    formFields[] {
       _key,
       fieldName,
       label,
@@ -292,6 +267,20 @@ export const contactBlockFragment = `
       fieldType,
       required,
       errorMessage,
+      serviceSelectionMode,
+      "serviceOptions": select(
+        fieldType == "serviceSelect" && serviceSelectionMode == "all" => *[_type == "service"] | order(title asc) {
+          _id,
+          title,
+          "slug": slug.current
+        },
+        fieldType == "serviceSelect" && serviceSelectionMode == "manual" => selectedServices[]-> {
+          _id,
+          title,
+          "slug": slug.current
+        },
+        fieldType == "serviceSelect" && serviceSelectionMode == "custom" => customServiceOptions
+      ),
       options
     },
     submitButtonLabel,

@@ -207,36 +207,22 @@ export interface WhyChooseUsBlockData {
   items: ValuePropItemData[]
 }
 
-export interface ContactFormFieldConfig {
-  label?: string
-  placeholder?: string
-  required?: boolean
-  errorMessage?: string
-}
-
 export interface ContactServiceOption {
   _id: string
   title: string
   slug: string
 }
 
-export interface ContactServiceFieldConfig {
-  label?: string
-  placeholder?: string
-  required?: boolean
-  errorMessage?: string
-  serviceSelectionMode: 'all' | 'manual' | 'custom'
-  options?: ContactServiceOption[] | string[]
-}
-
-export interface CustomFormFieldData {
+export interface ContactFormFieldData {
   _key: string
   fieldName: string
   label: string
   placeholder?: string
-  fieldType: 'text' | 'email' | 'phone' | 'select' | 'textarea' | 'checkbox'
+  fieldType: 'text' | 'email' | 'phone' | 'serviceSelect' | 'select' | 'textarea' | 'checkbox'
   required?: boolean
   errorMessage?: string
+  serviceSelectionMode?: 'all' | 'manual' | 'custom'
+  serviceOptions?: ContactServiceOption[] | string[]
   options?: string[]
 }
 
@@ -252,13 +238,7 @@ export interface ContactBlockData {
   address?: string
   workingHours?: string
   mapUrl?: string
-  firstNameField?: ContactFormFieldConfig
-  lastNameField?: ContactFormFieldConfig
-  emailField?: ContactFormFieldConfig
-  phoneField?: ContactFormFieldConfig
-  serviceField?: ContactServiceFieldConfig
-  messageField?: ContactFormFieldConfig
-  additionalCustomFields?: CustomFormFieldData[]
+  formFields?: ContactFormFieldData[]
   submitButtonLabel?: string
   successTitle?: string
   successMessage?: string
