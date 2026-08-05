@@ -265,18 +265,18 @@ export const pageBuilderFragment = `
 `
 
 export const themeSettingsFragment = `
-  "primaryColor": coalesce(primaryColor.hex, primaryColor),
-  "secondaryColor": coalesce(secondaryColor.hex, secondaryColor),
-  "accentColor": coalesce(accentColor.hex, accentColor),
-  "primaryButtonBg": coalesce(primaryButtonBg.hex, primaryButtonBg),
-  "primaryButtonTxt": coalesce(primaryButtonTxt.hex, primaryButtonTxt),
-  "primaryButtonHover": coalesce(primaryButtonHover.hex, primaryButtonHover),
-  "secondaryButtonBg": coalesce(secondaryButtonBg.hex, secondaryButtonBg),
-  "secondaryButtonTxt": coalesce(secondaryButtonTxt.hex, secondaryButtonTxt),
-  "secondaryButtonHover": coalesce(secondaryButtonHover.hex, secondaryButtonHover),
-  "headingTxt": coalesce(headingTxt.hex, headingTxt),
-  "txtColor": coalesce(txtColor.hex, txtColor),
-  "pillBg": coalesce(pillBg.hex, pillBg),
-  "pillBorder": coalesce(pillBorder.hex, pillBorder),
-  "pillTxtColor": coalesce(pillTxtColor.hex, pillTxtColor)
+  "primaryColor": coalesce(primaryColor.value, primaryColor.hex, primaryColor),
+  "secondaryColor": coalesce(secondaryColor.value, secondaryColor.hex, secondaryColor),
+  "accentColor": coalesce(accentColor.value, accentColor.hex, accentColor),
+  "primaryButtonBg": coalesce(primaryButtonBg.value, primaryButtonBg.hex, primaryButtonBg),
+  "primaryButtonTxt": coalesce(primaryButtonTxt.value, primaryButtonTxt.hex, primaryButtonTxt),
+  "primaryButtonHover": coalesce(primaryButtonHover.value, primaryButtonHover.hex, primaryButtonHover),
+  "secondaryButtonBg": coalesce(secondaryButtonBg.value, secondaryButtonBg.hex, secondaryButtonBg),
+  "secondaryButtonTxt": coalesce(secondaryButtonTxt.value, secondaryButtonTxt.hex, secondaryButtonTxt),
+  "secondaryButtonHover": coalesce(secondaryButtonHover.value, secondaryButtonHover.hex, secondaryButtonHover),
+  "headingTxt": coalesce(headingTxt.value, headingTxt.hex, headingTxt),
+  "txtColor": coalesce(txtColor.value, txtColor.hex, txtColor),
+  "pillBg": coalesce(pillBg.value, pillBg.hex, pillBg),
+  "pillBorder": coalesce(pillBorder.value, pillBorder.hex, pillBorder),
+  "pillTxtColor": coalesce(pillTxtColor.value, pillTxtColor.hex, pillTxtColor)
 `
