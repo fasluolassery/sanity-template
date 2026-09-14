@@ -6,4 +6,8 @@ export default defineCliConfig({
     projectId,
     dataset,
   },
+  vite: (config: any) => ({
+    ...config,
+    envPrefix: ['SANITY_STUDIO_', 'NEXT_PUBLIC_'],
+  }),
 })
