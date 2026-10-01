@@ -9,6 +9,5 @@ export const templateConfig = {
   defaultStudioTitle: 'Content Studio',
   defaultDataset: 'production',
   defaultApiVersion: '2024-03-01',
-  fallbackProjectId: 'placeholder-project-id',
   singletonDocumentTypes: ['siteSettings', 'navigation', 'footer', 'themeSettings'],
 }

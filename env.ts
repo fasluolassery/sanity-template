@@ -1,9 +1,8 @@
 import { templateConfig } from './template.config'
 
+/** Project ID must come from env — no hardcoded fallback. */
 export const projectId =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
-  process.env.SANITY_STUDIO_PROJECT_ID ||
-  templateConfig.fallbackProjectId
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_STUDIO_PROJECT_ID || ''
 
 export const dataset =
   process.env.NEXT_PUBLIC_SANITY_DATASET ||
@@ -16,3 +15,9 @@ export const apiVersion =
   templateConfig.defaultApiVersion
 
 export const studioTitle = process.env.SANITY_STUDIO_TITLE || templateConfig.defaultStudioTitle
+
+if (!projectId) {
+  console.warn(
+    '[sanity] Missing SANITY_STUDIO_PROJECT_ID / NEXT_PUBLIC_SANITY_PROJECT_ID — set it in .env'
+  )
+}
